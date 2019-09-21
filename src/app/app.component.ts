@@ -10,8 +10,9 @@ import {PostModel} from './post.model';
 })
 export class AppComponent implements OnInit {
   loadedPosts: PostModel[] = [];
+  isFetching = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postsService: PostsService) {}
 
   ngOnInit() {
     this.fetchPosts();
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
 
   onCreatePost(postData: PostModel) {
     // Send Http request
+    this.postsService.createAndStoredPost(postData.title, postData.content);
 
   }
 
