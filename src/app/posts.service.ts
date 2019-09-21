@@ -22,7 +22,7 @@ export class PostsService {
   }
 
   fetchPosts() {
-    this.http
+    return this.http
       .get<{[key: string]: PostModel}>(
         'https://section18angularcourse.firebaseio.com/posts.json',
       )
