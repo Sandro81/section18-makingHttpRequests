@@ -19,4 +19,8 @@ export class PostsService {
         console.log(responseData);
       });
   }
+
+  fetchPosts() {
+
+  }
 }
