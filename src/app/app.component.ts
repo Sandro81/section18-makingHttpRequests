@@ -19,14 +19,7 @@ export class AppComponent implements OnInit {
 
   onCreatePost(postData: PostModel) {
     // Send Http request
-    this.http
-      .post<{name: string}>(
-        'https://section18angularcourse.firebaseio.com/posts.json',
-        postData
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
+
   }
 
   onFetchPosts() {
@@ -42,7 +35,6 @@ export class AppComponent implements OnInit {
   // Get Http request
   private fetchPosts() {
     this.http
-
       .get<{[key: string]: PostModel}>(
       'https://section18angularcourse.firebaseio.com/posts.json',
       )
