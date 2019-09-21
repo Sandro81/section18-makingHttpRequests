@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {PostModel} from './post.model';
 import {PostsService} from './posts.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',

@@ -15,10 +15,7 @@ export class PostsService {
       .post<{name: string}>(
         'https://section18angularcourse.firebaseio.com/posts.json',
         postData
-      )
-      .subscribe(responseData => {
-        console.log(responseData);
-      });
+      );
   }
 
   fetchPosts() {
@@ -27,15 +24,14 @@ export class PostsService {
         'https://section18angularcourse.firebaseio.com/posts.json',
       )
       .pipe(map((responseData: {[key: string]: PostModel}) => {
-        const postsArray: PostModel[] = [];
-        for (const key in responseData) {
-          if (responseData.hasOwnProperty(key)) {
-            postsArray.push({...responseData[key], id: key });
+          const postsArray: PostModel[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postsArray.push({...responseData[key], id: key });
+            }
           }
-        }
-        return postsArray;
-      }))
-      .subscribe(
-        posts => {});
+          return postsArray;
+        })
+      );
+
   }
-}
