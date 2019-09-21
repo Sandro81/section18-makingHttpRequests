@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {PostModel} from './post.model';
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
@@ -21,6 +22,20 @@ export class PostsService {
   }
 
   fetchPosts() {
-
+    this.http
+      .get<{[key: string]: PostModel}>(
+        'https://section18angularcourse.firebaseio.com/posts.json',
+      )
+      .pipe(map((responseData: {[key: string]: PostModel}) => {
+        const postsArray: PostModel[] = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            postsArray.push({...responseData[key], id: key });
+          }
+        }
+        return postsArray;
+      }))
+      .subscribe(
+        posts => {});
   }
 }
