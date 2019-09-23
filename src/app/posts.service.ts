@@ -6,7 +6,7 @@ import {Subject, throwError} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
-  error = new Subject<string>;
+  error = new Subject<string>();
   constructor(private http: HttpClient) {
   }
 
