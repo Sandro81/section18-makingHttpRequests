@@ -14,6 +14,7 @@ import {error} from 'util';
 export class AppComponent implements OnInit {
   loadedPosts: PostModel[] = [];
   isFetching = false;
+  error = null;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
