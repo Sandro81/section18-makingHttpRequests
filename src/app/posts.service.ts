@@ -37,7 +37,10 @@ export class PostsService {
           return postsArray;
         })
       );
+  }
 
+  deletePosts() {
+    return this.http.delete('https://section18angularcourse.firebaseio.com/posts.json');
   }
 
 }
