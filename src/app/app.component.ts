@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {PostModel} from './post.model';
 import {PostsService} from './posts.service';
 import {Observable} from 'rxjs';
+import {error} from 'util';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,9 @@ export class AppComponent implements OnInit {
     this.postsService.fetchPosts().subscribe(posts => {
       this.isFetching = false;
       this.loadedPosts = posts;
-    } );
+    },  error => {
+
+    });
   }
 
   onClearPosts() {
