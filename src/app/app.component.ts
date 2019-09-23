@@ -18,9 +18,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.isFetching = true;
-      this.postsService.fetchPosts().subscribe(posts => {
-        this.isFetching = false;
-        this.loadedPosts = posts;
+    this.postsService.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
     } );
   }
 
