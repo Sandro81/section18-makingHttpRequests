@@ -62,6 +62,9 @@ export class PostsService {
       {
         observe: 'events'
       }
+    ).pipe(tap(event => {
+        console.log(event);
+      })
     );
   }
 
