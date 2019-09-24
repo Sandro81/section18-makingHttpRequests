@@ -17,7 +17,10 @@ export class PostsService {
     this.http
       .post<{ name: string }>(
         'https://section18angularcourse.firebaseio.com/posts.json',
-        postData
+        postData,
+        {
+          observe: 'response'
+        }
       )
       .subscribe(responseData => {
         console.log(responseData);
@@ -55,7 +58,11 @@ export class PostsService {
   }
 
   deletePosts() {
-    return this.http.delete('https://section18angularcourse.firebaseio.com/posts.json');
+    return this.http.delete('https://section18angularcourse.firebaseio.com/posts.json',
+      {
+        observe: 'events'
+      }
+    );
   }
 
 }
